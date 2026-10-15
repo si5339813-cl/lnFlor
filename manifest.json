@@ -1,0 +1,9 @@
+{
+  "name": "Флора Ленских столбов",
+  "short_name": "Флора парка",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F1EDE4",
+  "theme_color": "#4B545E",
+  "icons": []
+}

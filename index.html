@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4B545E"><title>Флора Ленских столбов</title>
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+<header class="topbar"><button class="back hidden" id="back" aria-label="Назад">‹</button><a class="brand" href="#home" data-go="home"><span class="brand-mark"><img src="group3.png" alt="ЛенФлор" onerror="this.style.display='none';this.parentElement.classList.add('logo-missing')"><span class="brand-fallback">ЛФ</span></span><span><b>ЛенФлор</b><small>Определитель растений</small></span></a><button class="iconbtn" id="savedTop" title="Моя коллекция" aria-label="Моя коллекция">♡</button></header>
+<main id="app">
+<section class="screen active" id="home">
+<section class="hero"><img class="hero-image" src="./jpg.webp" alt="Ленские столбы" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='./images/jpg.webp'}else{this.style.display='none';this.parentElement.classList.add('hero-no-image')}"><div class="hero-shade"></div><div class="hero-copy"><span class="eyebrow">НАЦИОНАЛЬНЫЙ ПАРК «ЛЕНСКИЕ СТОЛБЫ»</span><h1>Природа<br>рядом</h1><p>Откройте редкие растения Якутии. Узнавайте, изучайте, сохраняйте.</p><button class="hero-cta" data-go="identify">Определить растение <span>→</span></button></div></section>
+<div class="home-section-title"><div><span class="eyebrow">ИССЛЕДУЙТЕ ПРИРОДУ</span><h2>Что хотите сделать?</h2></div><span class="section-flower">✳</span></div><div class="action-grid">
+<button class="action" data-go="identify"><span>⌕</span><b>Определитель</b><small>Ответьте на вопросы</small></button>
+<button class="action" data-go="catalog"><span>▤</span><b>Каталог видов</b><small><em id="total">47</em> растений</small></button>
+<button class="action" data-go="quiz"><span>✧</span><b>Викторина</b><small>Проверьте знания</small></button>
+<button class="action" data-go="collection"><span>♡</span><b>Моя коллекция</b><small>Ваши находки</small></button>
+</div><div class="care"><span class="care-icon">♡</span><div><b>Наблюдай бережно</b><p>Фотографируй растения, не срывай их и оставайся на маршруте.</p></div><span class="care-spark">✳</span></div>
+
+</section>
+<section class="screen" id="catalog"><div class="section-head"><div><p class="eyebrow">ЗНАКОМСТВО С ПРИРОДОЙ</p><h1>Каталог видов</h1></div><span class="count" id="catalogCount"></span></div>
+<div class="searchrow"><input id="search" placeholder="Поиск по названию…" autocomplete="off"><select id="category"><option value="">Все растения</option><option value="rare">Краснокнижные</option><option value="common">Другие виды</option></select></div>
+<div class="filters"><select id="color"><option value="">Любой цвет</option></select><select id="habitat"><option value="">Любое местообитание</option></select></div><div id="plantList" class="plant-list"></div>
+</section>
+<section class="screen" id="detail"><div id="detailContent"></div></section>
+<section class="screen" id="identify"><p class="eyebrow">ИНТЕРАКТИВНЫЙ ПОИСК</p><h1>Какое это растение?</h1><p class="muted">Выберите то, что заметили. Мы будем задавать меньше вопросов, если круг вариантов уже сузился.</p><div class="progress"><span id="progressBar"></span></div><div class="question-card"><small id="stepLabel">ВОПРОС 1</small><h2 id="question">Какого цвета цветок?</h2><div id="answers" class="answers"></div></div><button class="secondary full" id="skipQuestion">Не знаю / пропустить</button><div id="identifyResults"></div></section>
+<section class="screen" id="quiz"><p class="eyebrow">МИНИ-ВИКТОРИНА</p><h1>Проверьте себя</h1><div class="question-card"><small id="quizStep">ВОПРОС 1</small><h2 id="quizQuestion"></h2><div id="quizAnswers" class="answers"></div><p id="quizFeedback" class="feedback"></p><button class="primary full hidden" id="quizNext">Следующий вопрос</button></div><p class="muted">Вопросы формируются по каталогу растений.</p></section>
+<section class="screen" id="collection"><p class="eyebrow">ВАШИ ОТКРЫТИЯ</p><h1>Моя коллекция</h1><div class="stats"><div><b id="savedCount">0</b><small>сохранено</small></div><div><b id="rareCount">0</b><small>редких видов</small></div><div><b id="points">0</b><small>баллов</small></div></div><div id="collectionList" class="plant-list"></div><button class="secondary full" data-go="rules">Правила бережного наблюдения</button></section>
+<section class="screen" id="rules"><p class="eyebrow">ПАМЯТКА ПУТЕШЕСТВЕННИКА</p><h1>Берегите редкие растения</h1><div class="info-card"><h3>Наблюдайте бережно</h3><p>Не срывайте цветы и листья, не выкапывайте растения и не сходите с разрешённых маршрутов ради фотографии.</p><h3>Фотографируйте, не трогая</h3><p>Снимайте общий вид и детали с безопасного расстояния. Не раскрывайте точные координаты редких находок публично.</p><h3>Помните о достоверности</h3><p>Определение в приложении — подсказка, а не заключение специалиста. Некоторые признаки в каталоге помечены как требующие проверки.</p></div><button class="primary full" data-go="home">На главную</button></section>
+</main>
+<nav class="bottom-nav"><button class="navitem selected" data-go="home"><span>⌂</span>Главная</button><button class="navitem" data-go="catalog"><span>▤</span>Каталог</button><button class="navitem" data-go="identify"><span>⌕</span>Определить</button><button class="navitem" data-go="collection"><span>♡</span>Коллекция</button></nav>
+<script src="app.js?v=2"></script>
+</body></html>
